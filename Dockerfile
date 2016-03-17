@@ -7,7 +7,8 @@ RUN apk add --update --no-cache \
 	 wget
 
 RUN wget http://nlp.stanford.edu/software/stanford-corenlp-full-2015-12-09.zip
-RUN unzip stanford-corenlp-full-2015-12-09.zip
+RUN unzip stanford-corenlp-full-2015-12-09.zip && \
+	rm stanford-corenlp-full-2015-12-09.zip
 
 WORKDIR stanford-corenlp-full-2015-12-09
 
