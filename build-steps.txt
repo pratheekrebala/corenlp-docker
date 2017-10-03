@@ -1,0 +1,9 @@
+# as root:
+cd ~jcoulter/source/corenlp-docker/
+docker build . -t jcoulter/nlp:latest
+
+# back as jcoulter:
+docker tag registry.heroku.com/canvas-corenlp-01/web:latest 140775790698.dkr.ecr.us-east-2.amazonaws.com/canvas:latest
+docker push  140775790698.dkr.ecr.us-east-2.amazonaws.com/canvas:latest
+# may need to run login, (remove '-e none')
+
