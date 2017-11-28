@@ -1,6 +1,6 @@
 FROM java:jre-alpine
 
-MAINTAINER Moti Zilberman <motiz88@gmail.com>
+LABEL maintainer="Moti Zilberman <motiz88@gmail.com>"
 
 RUN apk add --update --no-cache \
 	 unzip \
@@ -8,11 +8,14 @@ RUN apk add --update --no-cache \
 
 # https://nlp.stanford.edu/software/stanford-corenlp-full-2017-06-09.zip
 RUN wget http://nlp.stanford.edu/software/stanford-corenlp-full-2017-06-09.zip
+
 RUN unzip stanford-corenlp-full-2017-06-09.zip && \
 	rm stanford-corenlp-full-2017-06-09.zip
 
-
 WORKDIR stanford-corenlp-full-2017-06-09
+
+RUN wget http://nlp.stanford.edu/software/stanford-english-corenlp-2017-06-09-models.jar
+RUN wget http://nlp.stanford.edu/software/stanford-english-kbp-corenlp-2017-06-09-models.jar
 
 COPY ./start.sh start.sh
 
